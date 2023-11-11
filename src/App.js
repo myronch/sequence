@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div>
       <h1>Basic Example</h1>
-      <Header />
+      <Header /> 
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
