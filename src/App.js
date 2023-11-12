@@ -1,54 +1,21 @@
 import React from 'react';
-import Header from './components/Header'; // Import the Header component
+import './App.css';
 import { Routes, Route, Outlet, Link } from "react-router-dom";
-import Homepage from './components/Homepage'; // Import the HomePage component
-import Sequence from './components/Sequence'; // Import the Sequence component
+import Header from './components/Header'; 
+import Homepage from './components/Homepage'; 
+import Sequence from './components/Sequence'; 
+import Taskbar from './components/Taskbar';
 
 export default function App() {
   return (
     <div>
-      <h1>Basic Example</h1>
       <Header /> 
+      <Taskbar /> 
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
-          <Route path="sequence " element={<Sequence />} />
-
-          {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
-          <Route path="*" element={<NoMatch />} />
-        </Route>
+        <Route index element={<Homepage />} />
+        <Route path="sequence" element={<Sequence />} />
+        <Route path="*" element={<NoMatch />} />
       </Routes>
-    </div>
-  );
-}
-
-function Layout() {
-  return (
-    <div>
-      {/* A "layout route" is a good place to put markup you want to
-          share across all the pages on your site, like navigation. */}
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/sequence">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/nothing-here">Nothing Here</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <hr />
-
-      {/* An <Outlet> renders whatever child route is currently active,
-          so you can think about this <Outlet> as a placeholder for
-          the child routes we defined above. */}
-      <Outlet />
     </div>
   );
 }

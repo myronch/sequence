@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0; /* Optionally, remove any margin for consistency */
+}
