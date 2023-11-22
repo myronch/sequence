@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './App.css';
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Header from './components/Header'; 
@@ -7,13 +7,14 @@ import Sequence from './components/Sequence';
 import Taskbar from './components/Taskbar';
 
 export default function App() {
+  const sequenceRef = useRef(null);
   return (
     <div>
       <Header /> 
       <Taskbar /> 
       <Routes>
         <Route index element={<Homepage />} />
-        <Route path="sequence" element={<Sequence />} />
+        <Route path="sequence" element={<Sequence ref={sequenceRef} />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </div>
